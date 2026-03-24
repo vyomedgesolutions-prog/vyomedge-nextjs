@@ -2,15 +2,21 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const STATIC_FILTERS = ['All', 'Full Ecosystem', 'SEO', 'Meta Ads', 'Web Dev', 'Google Ads'];
+const STATIC_FILTERS = ['All', 'Full Ecosystem', 'SEO', 'Meta Ads', 'Web Dev', 'Google Ads', 'SMM'];
 
 function normalize(item) {
   return {
-    client: item.client || 'Client', url: item.url || '#', tags: item.tags || [], icon: item.icon || '📁',
-    color: item.color || '#7600C4', description: item.description || '',
+    client: item.client || 'Client', 
+    url: item.url || '#', 
+    tags: item.tags || [], 
+    icon: item.icon || '',
+    color: item.color || '#7600C4', 
+    description: item.description || '',
     results: Array.isArray(item.results) ? item.results : [],
-    metrics: { da: item.metrics?.da ?? '-', pa: item.metrics?.pa ?? '-' }, _id: item._id,
+    metrics: { da: item.metrics?.da ?? '-', pa: item.metrics?.pa ?? '-' }, 
+    _id: item._id,
   };
 }
 
@@ -55,7 +61,21 @@ export default function PortfolioClient({ initialCases }) {
                       </div>
                       <h2 className="text-t-text font-bold text-lg group-hover:gradient-text transition-all">{c.client}</h2>
                     </div>
-                    <span className="text-3xl">{c.icon}</span>
+                    {/* Show icon/logo if available */}
+                    {c.icon ? (
+                      <div className="w-12 h-12 rounded-lg overflow-hidden bg-white flex-shrink-0">
+                        <img 
+                          src={c.icon} 
+                          alt={c.client} 
+                          className="w-full h-full object-contain"
+                          onError={(e) => { e.target.style.display = 'none'; }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl" style={{ background: `${c.color}20` }}>
+                        {c.client.charAt(0)}
+                      </div>
+                    )}
                   </div>
                   <p className="text-t-muted text-sm mb-5 leading-relaxed line-clamp-2">{c.description}</p>
                   <div className="grid grid-cols-2 gap-3">
@@ -67,7 +87,10 @@ export default function PortfolioClient({ initialCases }) {
                     ))}
                   </div>
                   <div className="mt-4 flex items-center justify-between">
-                    <div className="flex gap-3 text-xs text-t-faint"><span>DA {c.metrics.da}</span><span>PA {c.metrics.pa}</span></div>
+                    <div className="flex gap-3 text-xs text-t-faint">
+                      {c.metrics.da > 0 && <span>DA {c.metrics.da}</span>}
+                      {c.metrics.pa > 0 && <span>PA {c.metrics.pa}</span>}
+                    </div>
                     <span className="text-[#4CFFE7] text-xs font-medium group-hover:underline">View details →</span>
                   </div>
                 </div>
@@ -85,15 +108,24 @@ export default function PortfolioClient({ initialCases }) {
         </motion.div>
       </div>
 
+      {/* Modal */}
       <AnimatePresence>
         {selected && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)}
             className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
             <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()} className="glass rounded-3xl p-8 max-w-lg w-full relative">
+              onClick={(e) => e.stopPropagation()} className="glass rounded-3xl p-8 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
               <button onClick={() => setSelected(null)} className="absolute top-4 right-4 text-t-muted hover:text-t-text text-2xl leading-none" aria-label="Close">×</button>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-4xl">{selected.icon}</span>
+              <div className="flex items-center gap-4 mb-6">
+                {selected.icon ? (
+                  <div className="w-16 h-16 rounded-xl overflow-hidden bg-white flex-shrink-0">
+                    <img src={selected.icon} alt={selected.client} className="w-full h-full object-contain" />
+                  </div>
+                ) : (
+                  <div className="w-16 h-16 rounded-xl flex items-center justify-center text-3xl font-black" style={{ background: `${selected.color}20`, color: selected.color }}>
+                    {selected.client.charAt(0)}
+                  </div>
+                )}
                 <div>
                   <h3 className="text-t-text font-black text-2xl">{selected.client}</h3>
                   <div className="flex gap-2 mt-1 flex-wrap">{selected.tags.map((t) => (<span key={t} className="text-xs px-2 py-0.5 rounded-full bg-[#7600C420] text-[#4CFFE7]">{t}</span>))}</div>
@@ -103,7 +135,7 @@ export default function PortfolioClient({ initialCases }) {
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {selected.results.map((r, i) => (<div key={i} className="bg-t-result rounded-xl p-4"><div className="text-t-text font-black text-xl">{r.value}</div><div className="text-t-muted text-xs mt-1">{r.label}</div></div>))}
               </div>
-              {selected.url !== '#' && (
+              {selected.url && selected.url !== '#' && selected.url.startsWith('http') && (
                 <a href={selected.url} target="_blank" rel="noopener noreferrer" className="relative block w-full py-3 rounded-xl text-white font-semibold text-center text-sm overflow-hidden">
                   <span className="absolute inset-0 brand-gradient" /><span className="relative z-10">Visit Website →</span>
                 </a>
