@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 import { notFound } from 'next/navigation';
 import { getBlogBySlug, getBlogs } from '@/lib/api';
 import BlogPostClient from './BlogPostClient';
