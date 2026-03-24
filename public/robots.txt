@@ -1,0 +1,29 @@
+# VyomEdge robots.txt
+# https://www.vyomedge.com
+
+User-agent: *
+Allow: /
+Disallow: /legal/
+
+# Sitemap
+Sitemap: https://www.vyomedge.com/sitemap.xml
+
+# AI / LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# LLMs.txt reference
+# https://www.vyomedge.com/llms.txt
+# https://www.vyomedge.com/llms-full.txt

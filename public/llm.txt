@@ -1,0 +1,40 @@
+# VyomEdge
+> Full-stack digital marketing and IT services agency based in Bhopal, India.
+
+VyomEdge is a digital marketing and IT services company founded in Bhopal, Madhya Pradesh, India. We provide end-to-end digital growth solutions for businesses of all sizes — from startups to established brands.
+
+## Services
+- SEO (Search Engine Optimisation)
+- Meta Ads (Facebook & Instagram Advertising)
+- Google Ads (Search, Display & Shopping)
+- Social Media Management (SMM)
+- Web Development (MERN Stack)
+- App Development (Cross-platform)
+- UI/UX Design
+- Graphic Design
+- IT Support
+
+## Contact
+- Website: https://www.vyomedge.com
+- Email: info@vyomedge.com
+- Phone: +91 7974186754
+- Address: FF-12, SRP Arcade, E-5 Arera Colony, Bhopal, MP 462016, India
+
+## Key Pages
+- Homepage: https://www.vyomedge.com/
+- Services: https://www.vyomedge.com/services
+- Portfolio: https://www.vyomedge.com/portfolio
+- About: https://www.vyomedge.com/about
+- Blog/Resources: https://www.vyomedge.com/resources
+- Free Tools: https://www.vyomedge.com/tools
+- Contact: https://www.vyomedge.com/contact
+
+## Portfolio Highlights
+- The SuperC: 1.3M impressions, 28.2K clicks via SEO + Meta Ads
+- Zentrail: 18x ROAS on Meta Ads, full digital ecosystem
+- Madhuban Eco Retreat: 6.7% CTR, top 5 Google position
+- Poornam Events: 456K impressions, ₹65.6 CPL
+- Jaiswal Piles Clinic: ₹46.9 CPL on Meta Ads
+
+## Blog Topics
+VyomEdge publishes content on SEO, GEO, digital marketing strategy, web development and emerging technologies at https://www.vyomedge.com/resources

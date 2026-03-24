@@ -1,0 +1,14 @@
+{
+  "name": "VyomEdge",
+  "description": "Full-stack digital marketing and IT services agency based in Bhopal, India.",
+  "url": "https://www.vyomedge.com",
+  "logo": "https://www.vyomedge.com/logo.png",
+  "contact": { "email": "info@vyomedge.com", "phone": "+91-7974186754" },
+  "services": ["SEO", "Social Media Management", "Meta Ads", "Google Ads", "Web Development", "App Development", "UI/UX Design"],
+  "social": {
+    "facebook": "https://www.facebook.com/vyomedge/",
+    "instagram": "https://www.instagram.com/vyomedge_official/",
+    "linkedin": "https://www.linkedin.com/company/vyom-edge/",
+    "twitter": "https://x.com/VyomedgeS"
+  }
+}

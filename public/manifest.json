@@ -1,0 +1,10 @@
+{
+  "name": "VyomEdge",
+  "short_name": "VyomEdge",
+  "description": "Full-stack digital marketing and IT services agency based in Bhopal, India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08080F",
+  "theme_color": "#7600C4",
+  "icons": [{ "src": "/vyomedge icon.png", "sizes": "512x512", "type": "image/png" }]
+}
